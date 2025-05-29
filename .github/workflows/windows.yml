@@ -85,7 +85,12 @@ jobs:
         run: Get-Volume
         shell: pwsh
 
-      - run: nmake
+      - name: nmake
+        run: |
+          Get-ChildItem
+          pwd
+          nmake
+        shell: pwsh
 
 defaults:
   run:
