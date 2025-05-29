@@ -42,6 +42,12 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: /.github
 
+      - name: volume info
+        run: |
+          Get-ChildItem
+          pwd
+        shell: pwsh
+
       - name: setup env
         # Available Ruby versions: https://github.com/actions/runner-images/blob/main/images/windows/Windows2019-Readme.md#ruby
         # %TEMP% is inconsistent with %TMP% and test-all expects they are consistent.
