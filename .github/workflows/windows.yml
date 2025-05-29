@@ -37,6 +37,12 @@ jobs:
           bundler: none
           windows-toolchain: none
 
+      - name: Install libraries with scoop
+        run: |
+          Get-ChildItem
+          pwd
+        shell: pwsh
+
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           sparse-checkout-cone-mode: false
