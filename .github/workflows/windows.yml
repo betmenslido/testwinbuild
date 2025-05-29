@@ -39,8 +39,10 @@ jobs:
 
       - name: Install libraries with scoop
         run: |
-          Get-ChildItem
-          pwd
+          Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+          iwr -useb get.scoop.sh | iex
+          Join-Path (Resolve-Path ~).Path "scoop\shims" >> $Env:GITHUB_PATH
+          scoop install uutils-coreutils
         shell: pwsh
 
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
