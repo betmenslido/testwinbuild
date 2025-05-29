@@ -64,15 +64,15 @@ jobs:
             set VCVARS="%%I\VC\Auxiliary\Build\vcvarsall.bat"
           )
           set VCVARS
-          set | uutils sort > old.env
+          set | C:\Users\runneradmin\scoop\shims\uutils sort > old.env
           call %VCVARS% ${{ 'amd64' }} ${{ matrix.vcvars || '' }}
           nmake -f nul
           set TMP=%USERPROFILE%\AppData\Local\Temp
           set TEMP=%USERPROFILE%\AppData\Local\Temp
           set MAKEFLAGS=l
           set /a TEST_JOBS=(15 * %NUMBER_OF_PROCESSORS% / 10) > nul
-          set | uutils sort > new.env
-          uutils comm -13 old.env new.env >> %GITHUB_ENV%
+          set | C:\Users\runneradmin\scoop\shims\uutils sort > new.env
+          C:\Users\runneradmin\scoop\shims\uutils comm -13 old.env new.env >> %GITHUB_ENV%
           del *.env
 
       - name: compiler version
